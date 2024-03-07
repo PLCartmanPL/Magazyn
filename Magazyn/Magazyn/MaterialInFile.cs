@@ -102,8 +102,24 @@ namespace Warehouse
                 Console.WriteLine(number + " " + MaterialInFile.FileName);
                 number++;
             }
-
-
+        }
+        public override void StockStatus()
+        {
+            MaterialsInMemory.Clear();
+            MaterialsToMemory();
+            Console.WriteLine("<<===== STAN MAGAZYNU =====>");
+            Console.WriteLine("");
+            for (int numberInStock = 0; numberInStock < MaterialsInMemory.Count; numberInStock++)
+            {
+                var stockStatus = MaterialsInMemory[numberInStock];
+                var statsitic = stockStatus.GetStatistics();
+                Console.WriteLine($"          /////////{stockStatus.FileName}//////////");
+                Console.WriteLine($"Aktualna waga materiału: {statsitic.StockStatus:N2} kg.");
+                Console.WriteLine($"Liczba operacji w magazynie: {statsitic.NumberOfDelivery}, Średnia dostawa: {statsitic.AverageDelivery:N2} kg.");
+                Console.WriteLine($"Poziom zapasów: {statsitic.StockLevel:N2}");
+                Console.WriteLine("");
+                Console.WriteLine("");
+            }
         }
         public override Statistics GetStatistics()
         {

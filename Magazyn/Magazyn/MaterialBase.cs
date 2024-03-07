@@ -104,6 +104,7 @@ namespace Warehouse
         }
         public abstract void MaterialsToMemory();
         public abstract void MaterialsShowList();
+        public abstract void StockStatus();
 
         public abstract Statistics GetStatistics();
     }

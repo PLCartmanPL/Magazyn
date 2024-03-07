@@ -30,12 +30,11 @@ while (true)
         Console.WriteLine("wpisz 1 aby dodać nowy materiał");
         Console.WriteLine("wpisz 2 aby dodać wagę");
         Console.WriteLine("wpisz 3 aby wyświelić liste materiałów");
+        Console.WriteLine("wpisz 4 aby wyświelić stan całego magazynu");
         Console.WriteLine("wpisz q aby zakączyć");
-        Console.WriteLine("wpisz d aby wyświetlić zapisane dostawy");
         Console.WriteLine();
         var input = Console.ReadLine();
-
-
+       
         if (input == "1")
         {
             if (input == "q" || input == "Q")
@@ -46,17 +45,25 @@ while (true)
             {
                 string nameMaterial = "";
                 string sizeMaterial = "";
+                string otherName = "";
                 while (nameMaterial != "q" || nameMaterial != "Q" || sizeMaterial != "q" || sizeMaterial != "Q")
                 {
                     Console.WriteLine("wybierz rodzaj materiału wpisując 1, 2 lub 3");
                     Console.WriteLine(" 1 - Materiał okrągły");
                     Console.WriteLine(" 2 - Materiał kwadratowy");
                     Console.WriteLine(" 3 - Materiał sześciokąt");
+                    Console.WriteLine(" 4 - inny ksztat - WPISZ RĘcznie!!");
                     Console.WriteLine();
                     nameMaterial = Console.ReadLine();
                     if (nameMaterial == "q" || nameMaterial == "Q" || sizeMaterial == "q" || sizeMaterial == "Q")
                     {
                         break;
+                    }
+                    else if (nameMaterial == "4")
+                    {
+                        Console.WriteLine("Wpisz WŁASNY kształt materiału - UŻYJ TYLKO LITER!!!");
+                        otherName = Console.ReadLine();
+
                     }
                     Console.WriteLine("Wpisz rozmiar materiału w mm (Tylko liczby całkowite)");
                     sizeMaterial = Console.ReadLine();
@@ -81,6 +88,11 @@ while (true)
                         int sizeMaterialInInt = Int32.Parse(sizeMaterial);
                         var newMaterial = new MaterialInFile("Sześciokąt", sizeMaterialInInt);
                         break;
+                    }
+                    else if (nameMaterial == "4")
+                    {
+                        int sizeMaterialInInt = Int32.Parse(sizeMaterial);
+                        var newMaterial = new MaterialInFile(otherName, sizeMaterialInInt);
                     }
                     else
                     {
@@ -116,7 +128,7 @@ while (true)
                 {
                     string weightStringDote = weightString.Replace(".", ",");
                     float weight = float.Parse(weightStringDote);
-                    toMemory.ReadMaterial(numberInList, weight); 
+                    toMemory.ReadMaterial(numberInList, weight);
                 }
                 else
                 {
@@ -145,6 +157,11 @@ while (true)
                 Console.WriteLine();
             }
         }
+        else if (input == "4")
+        {
+            toMemory.StockStatus();
+            continue;
+        }
         else if (input == "q" || input == "Q" || input == "d" || input == "D")
         {
             if (input == "q" || input == "Q")
@@ -153,14 +170,9 @@ while (true)
             }
             else
             {
-                //var statsitic1 = material.GetStatistics();
-                //Console.WriteLine($"zapisane dostawy: {statsitic1.CheckDelivery}");
                 continue;
             }
         }
-
-
-
     }
     catch (Exception e)
     {
@@ -170,17 +182,5 @@ while (true)
         Console.WriteLine("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
         Console.WriteLine();
     }
-
-
 }
-//var statsitic = material.GetStatistics();
-
-
-//Console.WriteLine($"zapisane dostawy: {statsitic.CheckDelivery}");
-//Console.WriteLine($"Waga materiału w magazynie: {statsitic.StockStatus:N2}");
-//Console.WriteLine($"Najmniejsza dostawa: {statsitic.MinDelivery}");
-//Console.WriteLine($"Największa dostawa: {statsitic.MaxDelivery}");
-//Console.WriteLine($"Liczba dostaw: {statsitic.NumberOfDelivery}");
-//Console.WriteLine($"Średnia wartość dostaw: {statsitic.AverageDelivery}");
-//Console.WriteLine($"Poziom magazynu: {statsitic.StockLevel}");
 

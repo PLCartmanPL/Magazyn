@@ -40,7 +40,7 @@ namespace Warehouse
                         return "Full";
                     case var StockStatus when StockStatus >= 50:
                         return "Meddium";
-                    case var StockStatus when StockStatus >= 20:
+                    case var StockStatus when StockStatus >= 1:
                         return "Low";
                     default:
                         return "Empty";

@@ -15,6 +15,7 @@
         void ReadMaterial(int numberInList, float weight);
         void MaterialsToMemory();
         void MaterialsShowList();
+        void StockStatus();
         Statistics GetStatistics();
     }
 }
