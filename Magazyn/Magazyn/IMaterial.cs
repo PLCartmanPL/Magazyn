@@ -6,7 +6,6 @@
         public int Size { get; }
         public string FileNameTxt { get; }
         public string FileName { get; }
-
         void AddWeight(float weight);
         void AddWeight(string weight);
         void AddWeight(double weight);

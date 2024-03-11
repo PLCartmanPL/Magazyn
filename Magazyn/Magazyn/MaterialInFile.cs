@@ -4,7 +4,7 @@ using System.Xml.Linq;
 
 namespace Warehouse
 {
-    internal class MaterialInFile : MaterialBase
+    public class MaterialInFile : MaterialBase
     {
         private List<float> weights = new List<float>();
         public List<MaterialInFile> MaterialsInMemory = new List<MaterialInFile>();

@@ -7,19 +7,14 @@ MaterialInFile toMemory = new MaterialInFile();
 Console.WriteLine("Wczytano materiał z pliku:");
 toMemory.MaterialsShowList();
 
-
 Console.WriteLine("======================================");
 Console.WriteLine("Witamy w programie do obługi magazynu");
 Console.WriteLine("======================================");
 Console.WriteLine();
-
-
 void MaterialWeightAdded(object sender, EventArgs args)
 {
     Console.WriteLine("Dodano Nową Wagę");
 }
-
-
 while (true)
 {
     try
@@ -33,8 +28,9 @@ while (true)
         Console.WriteLine("wpisz 4 aby wyświelić stan całego magazynu");
         Console.WriteLine("wpisz q aby zakączyć");
         Console.WriteLine();
+
         var input = Console.ReadLine();
-       
+
         if (input == "1")
         {
             if (input == "q" || input == "Q")

@@ -47,7 +47,6 @@ namespace Warehouse
                 }
             }
         }
-
         public Statistics()
         {
             delivery.Clear();
